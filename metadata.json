@@ -1,0 +1,6 @@
+{
+  "name": "تطبيق مدرسي — أسماء الاستفهام",
+  "description": "التدريب الأكاديمي والتقييم الذاتي التفاعلي للأسئلة الوزارية حول الاستفهام بأحد أسماء الاستفهام لقواعد اللغة العربية للصف السادس الإعدادي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
