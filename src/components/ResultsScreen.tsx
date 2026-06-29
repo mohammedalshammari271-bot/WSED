@@ -20,11 +20,11 @@ interface ResultsScreenProps {
 }
 
 export default function ResultsScreen({
-  questions,
-  answers,
-  shownAnswers,
-  ratings,
-  mastery,
+  questions = [],
+  answers = {},
+  shownAnswers = {},
+  ratings = {},
+  mastery = {},
   onNavigate,
   onJumpToQuestion,
   onResetPrompt,

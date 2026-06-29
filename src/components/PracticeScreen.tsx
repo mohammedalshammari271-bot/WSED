@@ -46,13 +46,13 @@ function getAcademicLabel(score: number): string {
 }
 
 export default function PracticeScreen({
-  questions,
-  currentIndex,
-  answers,
-  shownAnswers,
-  ratings,
-  mastery,
-  filter,
+  questions = [],
+  currentIndex = 0,
+  answers = {},
+  shownAnswers = {},
+  ratings = {},
+  mastery = {},
+  filter = "all",
   onSetIndex,
   onUpdateAnswer,
   onRevealAnswer,

@@ -21,17 +21,19 @@ export default function App() {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        return {
-          currentScreen: parsed.currentScreen || "home",
-          currentIndex: parsed.currentIndex !== undefined ? parsed.currentIndex : 0,
-          answers: parsed.answers || {},
-          shownAnswers: parsed.shownAnswers || {},
-          ratings: parsed.ratings || {},
-          mastery: parsed.mastery || {},
-          expandedCards: parsed.expandedCards || { "p50-q01": true },
-          theme: parsed.theme || "light",
-          filter: parsed.filter || "all",
-        };
+        if (parsed && typeof parsed === "object") {
+          return {
+            currentScreen: parsed.currentScreen || "home",
+            currentIndex: parsed.currentIndex !== undefined ? parsed.currentIndex : 0,
+            answers: parsed.answers || {},
+            shownAnswers: parsed.shownAnswers || {},
+            ratings: parsed.ratings || {},
+            mastery: parsed.mastery || {},
+            expandedCards: parsed.expandedCards || { "p50-q01": true },
+            theme: parsed.theme || "light",
+            filter: parsed.filter || "all",
+          };
+        }
       } catch (e) {
         console.error("Error reading saved state:", e);
       }
@@ -158,8 +160,8 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const answeredCount = Object.keys(state.answers).filter(
-    (k) => state.answers[xId(k)]?.trim().length > 0
+  const answeredCount = Object.keys(state.answers || {}).filter(
+    (k) => (state.answers || {})[k]?.trim().length > 0
   ).length;
 
   function xId(id: string): string {
